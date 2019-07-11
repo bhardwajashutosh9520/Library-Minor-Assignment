@@ -1,5 +1,5 @@
-  export const SUBMIT_FORM =  'SUBMIT_FORM'
-  export const ITEM_LOCALSTORAGE ='ITEM_LOCALSTORAGE'
+export const SUBMIT_FORM =  'SUBMIT_FORM'
+export const ITEM_LOCALSTORAGE ='ITEM_LOCALSTORAGE'
  
 export const submitForm = (values) => {
   return dispatch => {
@@ -20,6 +20,13 @@ export const submitForm = (values) => {
     if(Number(num) == 0) {
       array.push(values)
     } 
+    else {
+      BookData.map(function (item) {
+        if(item.book_name == values.book_name & item.author_name == values.author_name) {
+          item.qnt = parseInt(item.qnt) + Number(values.qnt);
+        }
+      })
+    }
     console.log(num);
     localStorage.setItem('Book',JSON.stringify(array));
   }

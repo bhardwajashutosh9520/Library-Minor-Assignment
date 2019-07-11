@@ -12,5 +12,4 @@ const mapStateToProps = (state) => ({
   // counter : state.counter
 })
 
-
 export default connect(null,mapDispatchToProps)(BookList)

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Field, reduxForm} from 'redux-form'
 
-
 class BookForm extends React.Component {
   constructor(props){
     super(props);

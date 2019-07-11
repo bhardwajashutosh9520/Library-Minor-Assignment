@@ -20,6 +20,14 @@ export const submitForm = (values) => {
     array.push(values);
     console.log(array);
     localStorage.setItem('issue',JSON.stringify(array))
+
+    let BookData =  JSON.parse(localStorage.getItem('Book'));
+    BookData.map(function (item) {
+      if(item.book_name == values.book_name)  {
+          item.qnt = parseInt(item.qnt) - 1;
+        }
+      });
+    localStorage.setItem('Book',JSON.stringify(BookData));
   }
 }
 
