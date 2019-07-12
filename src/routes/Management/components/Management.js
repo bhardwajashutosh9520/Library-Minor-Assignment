@@ -22,19 +22,19 @@ class Management extends React.Component{
   }
    render(){
     const issueData = this.props.users;
-    const element = issueData.map(item => {
+    const bookIssue = issueData.map(item => {
       if(item.s_name != null) {
         return (     
               <tr>
                 <td>{item.s_name}</td>
-                <td>{item.book_name}</td>
                 <td>{item.field}</td>
+                <td>{item.book_name}</td>                
               </tr>
        )
       }
     })
 
-    const element2 = issueData.map(item => {
+    const bookStore = issueData.map(item => {
       if(item.author_name != null) {
         return (     
               <tr>
@@ -54,10 +54,10 @@ class Management extends React.Component{
             </tr>
               <tr>
                 <td>Student</td>
-                <td>Book</td>
                 <td>Branch</td>
+                <td>Book</td>    
               </tr>
-              {element}
+              {bookIssue}
             </tbody>
           </table>
         
@@ -71,7 +71,7 @@ class Management extends React.Component{
                 <td>Branch</td>
                 <td>Available</td>
               </tr>
-              {element2}
+              {bookStore}
             </tbody>
           </table>
     </div>

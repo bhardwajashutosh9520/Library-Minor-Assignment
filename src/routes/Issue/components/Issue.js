@@ -75,7 +75,7 @@ class Issue extends React.Component{
               </Field>
             </label>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Issue Book</button>
         </form>
       </div> 
       {this.state.message}

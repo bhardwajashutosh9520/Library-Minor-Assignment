@@ -1,5 +1,20 @@
 import React from 'react'
 import { Field, reduxForm} from 'redux-form'
+import RenderField from './renderfield';
+
+const required = value => (value || typeof value === 'number' ? undefined : 'Required')
+const maxLength = max => value =>
+  value && value.length > max ? `Must be ${max} characters or less` : undefined
+const maxLength25 = maxLength(25)
+export const minLength = min => value =>
+  value && value.length < min ? `Must be ${min} characters or more` : undefined
+  const number = value =>
+  value && isNaN(Number(value)) ? 'Must be a number' : undefined
+export const minLength5 = minLength(5)
+const email = value =>
+  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
+    ? 'Invalid email address'
+    : undefined
 
 class StudentForm extends React.Component {
   constructor(props){
@@ -15,26 +30,26 @@ class StudentForm extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="w-25 p-3 container">
         <form onSubmit={this.props.handleSubmit(this.save)}>
           <div>
             <label htmlFor="s_name">Student Name</label>
             <Field
               name="s_name"
-              component="input"
+              component={RenderField}
               type="text"
-              placeholder= "enter the student name"
-              required= "required"
+              validate = {[required, maxLength25, minLength5]}
+             
             />
           </div>
           <div>
-            <label htmlFor="author_name">E-mail</label>
+            <label htmlFor="email">E-mail</label>
             <Field
               name="email"
-              component="input"
+              component={RenderField}
               type="email"
+              validate = {[required, maxLength25, minLength5]}
               placeholder= "eg: xyz123@gmail.com"
-              required= "required"
             />
           </div>
           <div>
@@ -59,7 +74,7 @@ class StudentForm extends React.Component {
               required= "required"
             />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit">Add Student</button>
         </form>
         <h2> {this.state.message} </h2>
       </div>
