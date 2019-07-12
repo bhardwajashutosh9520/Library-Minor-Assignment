@@ -8,9 +8,7 @@ export const SET_USERS_DATA = 'SET_USERS_DATA';
 
 export const submitForm = (values) => { 
   return (dispatch) => {
-    console.log('Values in Save Form=============',values);
     let IssueData =  JSON.parse(localStorage.getItem('issue'));
-   console.log(IssueData);
     let array = [];
     if(IssueData!=null) {
       IssueData.map(function (v) {
@@ -18,9 +16,7 @@ export const submitForm = (values) => {
       });
     }
     array.push(values);
-    console.log(array);
-    localStorage.setItem('issue',JSON.stringify(array))
-
+    localStorage.setItem('issue',JSON.stringify(array));
     let BookData =  JSON.parse(localStorage.getItem('Book'));
     BookData.map(function (item) {
       if(item.book_name == values.book_name)  {

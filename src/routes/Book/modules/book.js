@@ -27,7 +27,6 @@ export const submitForm = (values) => {
         }
       })
     }
-    console.log(num);
     localStorage.setItem('Book',JSON.stringify(array));
   }
 }

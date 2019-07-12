@@ -3,8 +3,7 @@ export const SUBMIT_FORM =  'SUBMIT_FORM'
  
 export const submitForm = (values) => {
   return dispatch => {
-   let StudentData =  JSON.parse(localStorage.getItem('student'));
-   console.log(StudentData);
+    let StudentData =  JSON.parse(localStorage.getItem('student'));
     let array = [];
     if(StudentData!=null) {
       StudentData.map(function (v) {
@@ -12,7 +11,6 @@ export const submitForm = (values) => {
       });
     }
     array.push(values);
-    console.log(array);
     localStorage.setItem('student',JSON.stringify(array))
   }
 }

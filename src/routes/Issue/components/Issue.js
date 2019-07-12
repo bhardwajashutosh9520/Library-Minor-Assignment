@@ -22,7 +22,6 @@ class Issue extends React.Component{
   save(values) {
     this.props.submitForm(values);
     this.state.message = "Succcessfully Issued";
-    console.log('submitted');
   }
   additems(e) {
     this.props.getBook(e.target.value);

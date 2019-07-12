@@ -1,8 +1,8 @@
 // We only need to import the modules necessary for initial render
 import CoreLayout from '../layouts/PageLayout/PageLayout';
 import Home from './Home';
-import CounterRoute from './Counter';
-import ListRoute from './List';
+//import CounterRoute from './Counter';
+//import ListRoute from './List';
 import StudentRoute from './Student';
 import BookRoute from './Book';
 import IssueRoute from './Issue';
@@ -16,8 +16,8 @@ export const createRoutes = (store) => ({
   component   : CoreLayout,
   indexRoute  : Home,
   childRoutes : [
-    CounterRoute(store),
-    ListRoute(store),
+    //CounterRoute(store),
+    //ListRoute(store),
     StudentRoute(store),
     BookRoute(store),
     IssueRoute(store),
